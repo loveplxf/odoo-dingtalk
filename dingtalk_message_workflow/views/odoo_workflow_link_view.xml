@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_form_odoo_workflow_link_inherit" model="ir.ui.view">
+        <field name="name">odoo.workflow.link.form.inherit</field>
+        <field name="model">odoo.workflow.link</field>
+        <field name="inherit_id" ref="odoo_dynamic_workflow.view_form_odoo_workflow_link"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position='inside'>
+                <page string="通知">
+                    <group>
+                        <field name="notice_user_ids" widget="many2many_tags"/>
+                        <field name="notice_message_template" widget="code" options="{'mode': 'python'}"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

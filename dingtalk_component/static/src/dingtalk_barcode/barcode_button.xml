@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="web.BarcodeButton">
+        <div class="d-inline-flex w-100">
+            <t t-if="props.readonly">
+                <span t-esc="props.record.data[props.name] or ''" />
+            </t>
+            <t t-else="">
+                <input
+                    type="text"
+                    class="o_input"
+                    t-att-id="props.id"
+                    t-att-placeholder="props.placeholder"
+                    t-ref="input"
+                />
+                <button
+                    class="ms-3 d-inline-flex align-items-center"
+                    t-ref="button"
+                    t-att-disabled="props.disabled"
+                    t-attf-class="btn btn-sm btn-secondary o_barcode_button {{ props.className || '' }}"
+                    t-on-click.stop="onClick"
+                >
+                    <span class="fa fa-camera"/>
+                </button>
+            </t>
+        </div>
+    </t>
+
+</templates>
